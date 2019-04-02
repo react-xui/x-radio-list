@@ -1,0 +1,10 @@
+.x-radiolist {
+  display: flex;
+  flex-wrap: wrap;
+}
+.x-radiolist .x-radio {
+  flex: 1;
+}
+.x-radiolist .x-radiolist-radio-selected {
+  background-color: #ccc;
+}

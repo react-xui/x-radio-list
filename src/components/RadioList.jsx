@@ -42,8 +42,9 @@ export default class RadioList extends Component {
   }
   render() {
     let { className, children } = this.props;
+    let cls = typeof className ==='undefined' ? "x-radiolist":className+ " x-radiolist";
     return (
-      <div className={className || "" + " x-radiolist"}>
+      <div className={cls}>
         {this.formatRadio(children)}
       </div>
     );

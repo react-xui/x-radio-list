@@ -187,7 +187,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          className = _props.className,
 	          children = _props.children;
 
-	      return _react2.default.createElement('div', { className: className || "" + " x-radiolist" }, this.formatRadio(children));
+	      var cls = typeof className === 'undefined' ? "x-radiolist" : className + " x-radiolist";
+	      return _react2.default.createElement('div', { className: cls }, this.formatRadio(children));
 	    }
 	  }]);
 

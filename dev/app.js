@@ -15,9 +15,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <RadioList value="1">
+        <Radio value="1">aaaa</Radio>
+        <Radio value="2">bbb</Radio>
+      </RadioList>
        <RadioList value="1">
-         <Radio value="1">aaaa</Radio>
+         <Radio value="1" text="AAA">aaaa</Radio>
          <Radio value="2">bbb</Radio>
+       </RadioList>
+       <RadioList value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
        </RadioList>
       </div>
     )

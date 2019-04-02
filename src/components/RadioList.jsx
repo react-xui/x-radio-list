@@ -11,27 +11,39 @@ import Radio from './Radio';
 
 export default class RadioList extends Component {
   static Radio = Radio;
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = { selected:props.value||"" }
+    this.state = { selected: props.value || "" }
   }
-  onSelect=(v)=>{
-    this.setState({selected:v})
+  onSelect = (v) => {
+    this.setState({ selected: v })
   }
-  formatRadio(children){
-    return children.map( (item,key)=>{
-      let {children,value}= item.props;
+  formatRadio(children) {
+    let { options } = this.props;
+    let list = []
+    if (typeof options !== 'undefined') {
+      list = options;
+    } else {
+      list = children;
+    }
+    return list.map((item, key) => {
+      let {text} = item;
+      if (item && item.$$typeof && Symbol.for('react.element') == item.$$typeof) {
+        item = item.props;
+        text = typeof item.text === 'undefined' ? item.children : item.text;
+      }
+      let { value } = item;
       let selected = false;
-      if(value == this.state.selected){
+      if (value == this.state.selected) {
         selected = true;
       }
-      return <Radio key={key} selected={selected} value={value} onSelect={this.onSelect}>{children}</Radio>
+      return <Radio key={key} selected={selected} value={value} text={text} onSelect={this.onSelect} />
     })
   }
-  render () {
-    let {className, children} = this.props;
+  render() {
+    let { className, children } = this.props;
     return (
-      <div className={className||"" + " x-radiolist"}>
+      <div className={className || "" + " x-radiolist"}>
         {this.formatRadio(children)}
       </div>
     );

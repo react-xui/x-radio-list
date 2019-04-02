@@ -154,16 +154,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function formatRadio(children) {
 	      var _this2 = this;
 
-	      return children.map(function (item, key) {
-	        var _item$props = item.props,
-	            children = _item$props.children,
-	            value = _item$props.value;
+	      var options = this.props.options;
+
+	      var list = [];
+	      if (typeof options !== 'undefined') {
+	        list = options;
+	      } else {
+	        list = children;
+	      }
+	      return list.map(function (item, key) {
+	        var _item = item,
+	            text = _item.text;
+
+	        if (item && item.$$typeof && Symbol.for('react.element') == item.$$typeof) {
+	          item = item.props;
+	          text = typeof item.text === 'undefined' ? item.children : item.text;
+	        }
+	        var _item2 = item,
+	            value = _item2.value;
 
 	        var selected = false;
 	        if (value == _this2.state.selected) {
 	          selected = true;
 	        }
-	        return _react2.default.createElement(_Radio2.default, { key: key, selected: selected, value: value, onSelect: _this2.onSelect }, children);
+	        return _react2.default.createElement(_Radio2.default, { key: key, selected: selected, value: value, text: text, onSelect: _this2.onSelect });
 	      });
 	    }
 	  }, {
@@ -276,14 +290,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            var _props = this.props,
 	                children = _props.children,
+	                text = _props.text,
 	                value = _props.value,
 	                onSelect = _props.onSelect,
 	                selected = _props.selected,
 	                disabled = _props.disabled;
 
 	            var cls = getCss((_getCss = {}, _defineProperty(_getCss, selected, 'x-radiolist-radio-selected'), _defineProperty(_getCss, disabled, 'x-radiolist-radio-disabled'), _getCss));
+	            if (typeof text === 'undefined') {
+	                text = children;
+	            }
 	            var className = cls + ' x-radio';
-	            return _react2.default.createElement('div', { className: className }, _react2.default.createElement('div', { className: 'x-radio-text', onClick: this.onSelect.bind(this, value) }, children), _react2.default.createElement('div', { className: 'x-radio-value', onClick: this.onSelect.bind(this, value) }, value));
+	            return _react2.default.createElement('div', { className: className }, _react2.default.createElement('div', { className: 'x-radio-text', onClick: this.onSelect.bind(this, value) }, text), _react2.default.createElement('div', { className: 'x-radio-value', onClick: this.onSelect.bind(this, value) }, value));
 	        }
 	    }]);
 

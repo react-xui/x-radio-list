@@ -8,3 +8,6 @@
 .x-radiolist .x-radiolist-radio-selected {
   background-color: #ccc;
 }
+.x-radiolist .x-radio-value {
+  display: none;
+}

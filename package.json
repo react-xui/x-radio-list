@@ -1,7 +1,7 @@
 {
   "name": "x-radio-list",
-  "version": "0.0.3",
-  "description": "react xui 开发插件的种子项目",
+  "version": "0.0.4",
+  "description": "react xui 单选切换按钮",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",

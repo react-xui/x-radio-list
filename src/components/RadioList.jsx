@@ -16,7 +16,9 @@ export default class RadioList extends Component {
     this.state = { selected: props.value || "" }
   }
   onSelect = (v) => {
-    this.setState({ selected: v })
+    this.setState({ selected: v },()=>{
+      this.props.onChange&&this.props.onChange(v);
+    })
   }
   formatRadio(children) {
     let { options } = this.props;

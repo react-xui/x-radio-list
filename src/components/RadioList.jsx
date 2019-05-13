@@ -39,7 +39,7 @@ export default class RadioList extends Component {
       if (value == this.state.selected) {
         selected = true;
       }
-      return <Radio key={key} selected={selected} value={value} text={text} onSelect={this.onSelect} />
+      return <Radio {...item}  key={key} selected={selected} value={value} text={text} onSelect={this.onSelect} />
     })
   }
   render() {

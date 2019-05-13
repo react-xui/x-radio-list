@@ -86,6 +86,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+
 	var _createClass = function () {
 	  function defineProperties(target, props) {
 	    for (var i = 0; i < props.length; i++) {
@@ -179,7 +189,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (value == _this2.state.selected) {
 	          selected = true;
 	        }
-	        return _react2.default.createElement(_Radio2.default, { key: key, selected: selected, value: value, text: text, onSelect: _this2.onSelect });
+	        return _react2.default.createElement(_Radio2.default, _extends({}, item, { key: key, selected: selected, value: value, text: text, onSelect: _this2.onSelect }));
 	      });
 	    }
 	  }, {
@@ -305,7 +315,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                text = children;
 	            }
 	            var className = cls + ' x-radio';
-	            return _react2.default.createElement('div', { className: className, onClick: this.onSelect.bind(this, value) }, _react2.default.createElement('div', { className: 'x-radio-text' }, text), secText && _react2.default.createElement('div', { className: 'x-radio-text-sec' }, secText), _react2.default.createElement('div', { className: 'x-radio-value' }, value));
+	            return _react2.default.createElement('div', { className: className, onClick: this.onSelect.bind(this, value) }, _react2.default.createElement('div', { className: 'x-radio-text' }, text), secText && _react2.default.createElement('div', { className: 'x-radio-text-sec' }, secText));
 	        }
 	    }]);
 

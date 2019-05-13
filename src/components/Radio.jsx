@@ -29,7 +29,7 @@ export default class Radio extends Component{
             <div className={className} onClick={this.onSelect.bind(this,value)}>
                 <div className="x-radio-text">{text}</div>
                 {secText && <div className="x-radio-text-sec">{secText}</div>}
-                <div className="x-radio-value">{value}</div>
+                {/* <div className="x-radio-value">{value}</div> */}
             </div>
         );
     }

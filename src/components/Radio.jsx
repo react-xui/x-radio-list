@@ -16,13 +16,16 @@ export default class Radio extends Component{
         this.props.onSelect(v);
     }
     render(){
-        let {children,text,value,onSelect,selected,disabled,secText} = this.props;
+        let {children,text,value,onSelect,selected,disabled,secText,locale} = this.props;
         let cls = getCss({
             [selected]:'x-radiolist-radio-selected',
             [disabled]:'x-radiolist-radio-disabled'
         });
         if(typeof text ==='undefined'){
             text = children;
+        }
+        if(locale){
+            text = locale[text]||text;
         }
         let className = cls + ' x-radio';
         return (

@@ -308,11 +308,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	                onSelect = _props.onSelect,
 	                selected = _props.selected,
 	                disabled = _props.disabled,
-	                secText = _props.secText;
+	                secText = _props.secText,
+	                locale = _props.locale;
 
 	            var cls = getCss((_getCss = {}, _defineProperty(_getCss, selected, 'x-radiolist-radio-selected'), _defineProperty(_getCss, disabled, 'x-radiolist-radio-disabled'), _getCss));
 	            if (typeof text === 'undefined') {
 	                text = children;
+	            }
+	            if (locale) {
+	                text = locale[text] || text;
 	            }
 	            var className = cls + ' x-radio';
 	            return _react2.default.createElement('div', { className: className, onClick: this.onSelect.bind(this, value) }, _react2.default.createElement('div', { className: 'x-radio-text' }, text), secText && _react2.default.createElement('div', { className: 'x-radio-text-sec' }, secText));

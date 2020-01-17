@@ -16,9 +16,12 @@ export default class RadioList extends Component {
     this.state = { selected: props.value || "" }
   }
   onSelect = (v) => {
-    this.setState({ selected: v },()=>{
-      this.props.onChange&&this.props.onChange(v);
-    })
+    let {readOnly,disabled} = this.props;
+    if(readOnly != true && disabled !=true){
+      this.setState({ selected: v },()=>{
+        this.props.onChange&&this.props.onChange(v);
+      })
+    }
   }
   formatRadio(children) {
     let { options } = this.props;
@@ -43,8 +46,11 @@ export default class RadioList extends Component {
     })
   }
   render() {
-    let { className, children } = this.props;
+    let { className, children,readOnly,disabled,disabledCls='' } = this.props;
     let cls = typeof className ==='undefined' ? "x-radiolist":className+ " x-radiolist";
+    if (readOnly || disabled){
+      cls += ` ${disabledCls}`;
+    }
     return (
       <div className={cls}>
         {this.formatRadio(children)}

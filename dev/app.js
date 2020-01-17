@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: tianxiangbing
+ * @Date: 2019-04-02 10:41:30
+ * @LastEditTime : 2020-01-17 11:02:30
+ * @github: https://github.com/tianxiangbing
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RadioList from '../src/index';
@@ -25,7 +32,7 @@ class App extends React.Component {
          <Radio value="2">bbb</Radio>
        </RadioList>
       <br/>
-       <RadioList value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
+       <RadioList disabled={true} disabledCls="disabled" value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
        </RadioList>
       </div>
     )

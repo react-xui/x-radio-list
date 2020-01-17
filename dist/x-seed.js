@@ -152,9 +152,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (RadioList.__proto__ || Object.getPrototypeOf(RadioList)).call(this, props));
 
 	    _this.onSelect = function (v) {
-	      _this.setState({ selected: v }, function () {
-	        _this.props.onChange && _this.props.onChange(v);
-	      });
+	      var _this$props = _this.props,
+	          readOnly = _this$props.readOnly,
+	          disabled = _this$props.disabled;
+
+	      if (readOnly != true && disabled != true) {
+	        _this.setState({ selected: v }, function () {
+	          _this.props.onChange && _this.props.onChange(v);
+	        });
+	      }
 	    };
 
 	    _this.state = { selected: props.value || "" };
@@ -197,9 +203,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var _props = this.props,
 	          className = _props.className,
-	          children = _props.children;
+	          children = _props.children,
+	          readOnly = _props.readOnly,
+	          disabled = _props.disabled,
+	          _props$disabledCls = _props.disabledCls,
+	          disabledCls = _props$disabledCls === undefined ? '' : _props$disabledCls;
 
 	      var cls = typeof className === 'undefined' ? "x-radiolist" : className + " x-radiolist";
+	      if (readOnly || disabled) {
+	        cls += ' ' + disabledCls;
+	      }
 	      return _react2.default.createElement('div', { className: cls }, this.formatRadio(children));
 	    }
 	  }]);

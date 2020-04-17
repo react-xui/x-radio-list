@@ -168,6 +168,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(RadioList, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(newProps) {
+	      if (newProps.value !== this.props.value && newProps.value !== this.state.selected) {
+	        this.setState({ selected: newProps.value });
+	      }
+	    }
+	  }, {
 	    key: 'formatRadio',
 	    value: function formatRadio(children) {
 	      var _this2 = this;

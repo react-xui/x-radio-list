@@ -23,6 +23,11 @@ export default class RadioList extends Component {
       })
     }
   }
+  componentWillReceiveProps(newProps){
+    if(newProps.value !== this.props.value && newProps.value !==this.state.selected ){
+      this.setState({selected:newProps.value});
+    }
+  }
   formatRadio(children) {
     let { options } = this.props;
     let list = []

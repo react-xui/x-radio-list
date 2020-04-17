@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: tianxiangbing
  * @Date: 2019-04-02 10:41:30
- * @LastEditTime : 2020-01-17 11:02:30
+ * @LastEditTime: 2020-04-17 10:36:20
  * @github: https://github.com/tianxiangbing
  */
 import React from 'react';
@@ -14,15 +14,19 @@ var appElement = document.getElementById('example');
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = { show: false ,value:"1"};
   }
   testFunc() {
     this.setState({ show: !this.state.show });
   }
+  toggle(){
+    this.setState({value:"2"})
+  }
   render() {
     return (
       <div>
-      <RadioList value="1">
+        <button onClick={this.toggle.bind(this)}>切换</button>
+      <RadioList value={this.state.value}>
         <Radio value="1" secText="12345">aaaa</Radio>
         <Radio value="2">bbb</Radio>
       </RadioList>

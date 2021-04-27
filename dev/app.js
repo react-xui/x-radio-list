@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: tianxiangbing
  * @Date: 2019-04-02 10:41:30
- * @LastEditTime: 2020-04-17 10:36:20
+ * @LastEditTime: 2021-04-27 10:50:53
  * @github: https://github.com/tianxiangbing
  */
 import React from 'react';
@@ -36,7 +36,7 @@ class App extends React.Component {
          <Radio value="2">bbb</Radio>
        </RadioList>
       <br/>
-       <RadioList disabled={true} disabledCls="disabled" value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
+       <RadioList showTitle={true} disabled={true} disabledCls="disabled" value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
        </RadioList>
       </div>
     )

@@ -29,7 +29,7 @@ export default class RadioList extends Component {
     }
   }
   formatRadio(children) {
-    let { options } = this.props;
+    let { options ,showTitle} = this.props;
     let list = []
     if (typeof options !== 'undefined') {
       list = options;
@@ -47,7 +47,7 @@ export default class RadioList extends Component {
       if (value == this.state.selected) {
         selected = true;
       }
-      return <Radio {...item}  key={key} selected={selected} value={value} text={text} onSelect={this.onSelect} />
+      return <Radio {...item} showTitle={showTitle} key={key} selected={selected} value={value} text={text} onSelect={this.onSelect} />
     })
   }
   render() {

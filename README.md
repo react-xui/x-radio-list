@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: tianxiangbing
  * @Date: 2019-04-02 10:41:30
- * @LastEditTime: 2020-01-17 11:04:03
+ * @LastEditTime: 2021-04-27 10:47:47
  * @github: https://github.com/tianxiangbing
  -->
 # x-radio-list
@@ -23,3 +23,6 @@ npm install --save x-radio-list
     <RadioList  disabled={true} disabledCls="disabled" value="1" options={[{value:1,text:"aaa"},{value:2,text:"bbb"}]}>
     </RadioList>
 ```
+# Api
+## showTitle
+是否显示title提示，默认不显示

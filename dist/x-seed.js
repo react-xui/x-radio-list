@@ -179,7 +179,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function formatRadio(children) {
 	      var _this2 = this;
 
-	      var options = this.props.options;
+	      var _props = this.props,
+	          options = _props.options,
+	          showTitle = _props.showTitle;
 
 	      var list = [];
 	      if (typeof options !== 'undefined') {
@@ -202,19 +204,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (value == _this2.state.selected) {
 	          selected = true;
 	        }
-	        return _react2.default.createElement(_Radio2.default, _extends({}, item, { key: key, selected: selected, value: value, text: text, onSelect: _this2.onSelect }));
+	        return _react2.default.createElement(_Radio2.default, _extends({}, item, { showTitle: showTitle, key: key, selected: selected, value: value, text: text, onSelect: _this2.onSelect }));
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props,
-	          className = _props.className,
-	          children = _props.children,
-	          readOnly = _props.readOnly,
-	          disabled = _props.disabled,
-	          _props$disabledCls = _props.disabledCls,
-	          disabledCls = _props$disabledCls === undefined ? '' : _props$disabledCls;
+	      var _props2 = this.props,
+	          className = _props2.className,
+	          children = _props2.children,
+	          readOnly = _props2.readOnly,
+	          disabled = _props2.disabled,
+	          _props2$disabledCls = _props2.disabledCls,
+	          disabledCls = _props2$disabledCls === undefined ? '' : _props2$disabledCls;
 
 	      var cls = typeof className === 'undefined' ? "x-radiolist" : className + " x-radiolist";
 	      if (readOnly || disabled) {
@@ -329,7 +331,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                selected = _props.selected,
 	                disabled = _props.disabled,
 	                secText = _props.secText,
-	                locale = _props.locale;
+	                locale = _props.locale,
+	                showTitle = _props.showTitle;
 
 	            var cls = getCss((_getCss = {}, _defineProperty(_getCss, selected, 'x-radiolist-radio-selected'), _defineProperty(_getCss, disabled, 'x-radiolist-radio-disabled'), _getCss));
 	            if (typeof text === 'undefined') {
@@ -339,7 +342,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                text = locale[text] || text;
 	            }
 	            var className = cls + ' x-radio';
-	            return _react2.default.createElement('div', { className: className, onClick: this.onSelect.bind(this, value) }, _react2.default.createElement('div', { className: 'x-radio-text' }, text), secText && _react2.default.createElement('div', { className: 'x-radio-text-sec' }, secText));
+	            return _react2.default.createElement('div', { title: showTitle ? text : '', className: className, onClick: this.onSelect.bind(this, value) }, _react2.default.createElement('div', { className: 'x-radio-text' }, text), secText && _react2.default.createElement('div', { className: 'x-radio-text-sec' }, secText));
 	        }
 	    }]);
 
